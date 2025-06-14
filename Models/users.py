@@ -5,8 +5,9 @@ from Models.roles import Roles
 
 class Users(BaseModel):
     id = PrimaryKeyField()
-    login = CharField()
+    login = CharField(unique=True, max_length=150)
     password = CharField()
-    role_id = ForeignKeyField(Roles)
     fullname = CharField()
-    archive = BooleanField()
+    role_id = ForeignKeyField(Roles)
+    numberPhone = IntegerField()
+    Auto = CharField()
